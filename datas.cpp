@@ -66,6 +66,29 @@ class LinkedList
                 temp = temp->next;
             }
         }
+        bool    search_node(const char* val)
+        {
+            Node* temp = head;
+            while(temp)
+            {
+                if (temp->data == val)
+                    return true;
+                temp = temp->next;
+            }
+            return false;
+        }
+        ~LinkedList()
+        {
+            Node* temp = head;
+            while(temp)
+            {
+                head = head->next;
+                delete temp;
+                temp = head;
+            }
+            cout<<"--destructor is running--\n";
+            print_list();
+        }
 };
 
 int main()
@@ -102,5 +125,7 @@ int main()
     cout<<"__________________________________________________________\n\nafter deletion:\n";
     list2.print_list();
 
+    cout<<list.search_node("2")<<"\n";
+    cout<<list.search_node("5")<<"\n";
     return (0);
 }
