@@ -87,12 +87,11 @@ class LinkedList
     {
         Node* temp = head;
         int i = 0;
-        while (temp->next)
+        while (temp)
         {
             temp = temp->next;
             i++;
         }
-        i++;
         return i;
     }
     void    display_nodes()
@@ -170,6 +169,12 @@ int main()
     list.remove_node(1);
     list.display_nodes();
     cout<<"is empty?: "<<list.isEmpty()<<endl;
+    list.display_nodes();
+
+    list.insert(0, 0);
+    list.display_nodes();
+    
+    list.insert(20, 1);
     list.display_nodes();
     return 0;
 }
