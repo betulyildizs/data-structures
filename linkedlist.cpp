@@ -64,7 +64,7 @@ class LinkedList
     }
     void    insert(int val, int position)
     {
-        if (position - 1 >= find_size() || position < 0)
+        if (position > find_size() || position < 0)
             return;
         Node* new_node = new Node(val);
         if (position == 0)
