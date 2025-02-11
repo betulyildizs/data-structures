@@ -39,7 +39,7 @@ class LinkedList
         {
             head = head->next;
             delete temp;
-            cout<<"Deletion is done. >>";
+            cout<<"Deletion is done. >> ";
             return;
         }
         while(temp->next)
@@ -49,7 +49,7 @@ class LinkedList
                 Node* remove = temp->next;
                 temp->next = temp->next->next;
                 delete remove;
-                cout<<"Deletion is done. >>";
+                cout<<"Deletion is done. >> ";
                 return;
             }
             temp = temp->next;
@@ -106,6 +106,23 @@ class LinkedList
         }
         cout<<" NULL "<<endl;
     }
+    bool    contains(int val)
+    {
+        Node* temp = head;
+        while(temp)
+        {
+            if (temp->data == val)
+                return true;
+            temp = temp->next;
+        }
+        return false;
+    }
+    bool    isEmpty()
+    {
+        if (!head)
+            return true;
+        return false;
+    }
     ~LinkedList()
     {
         Node* temp = head;
@@ -143,6 +160,16 @@ int main()
     list.display_nodes();
 
     list.insert(8, 0);    
+    list.display_nodes();
+
+    cout<<list.contains(8)<<" "<<list.contains(1)<<" "<<list.contains(22)<<endl;
+    cout<<"is empty?: "<<list.isEmpty()<<endl;
+
+    list.remove_node(8);
+    list.display_nodes();
+    list.remove_node(1);
+    list.display_nodes();
+    cout<<"is empty?: "<<list.isEmpty()<<endl;
     list.display_nodes();
     return 0;
 }
